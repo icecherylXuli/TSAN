@@ -52,7 +52,7 @@ $ python test.py
 
 ## 5. Qualitative Results
 
-![1645521230323](./images/Qualitative_Results.png)
+![1645521230323](https://github.com/icecherylXuli/TSAN/blob/main/images/Qualitative_Results.PNG)
 
 
 

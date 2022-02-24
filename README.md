@@ -46,13 +46,13 @@ $ python test.py
 
 ## 4. Quantitative Results
 
-![1645521230323](.\images\Quantitative Results.png)
+![1645521230323](.\images\Quantitative_Results.png)
 
 
 
 ## 5. Qualitative Results
 
-![1645521230323](.\images\Qualitative Results.png)
+![1645521230323](.\images\Qualitative_Results.png)
 
 
 

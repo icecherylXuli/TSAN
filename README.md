@@ -46,7 +46,7 @@ $ python test.py
 
 ## 4. Quantitative Results
 
-![1645521230323](./images/Quantitative_Results.png)
+![1645521230323](https://github.com/icecherylXuli/TSAN/blob/main/images/Quantitative_Results.PNG)
 
 
 

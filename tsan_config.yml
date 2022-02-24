@@ -1,0 +1,58 @@
+dataset:
+  test: # should be modified by your own file
+    type: VideoTestMFQEv2Dataset
+    gt_path: /home/data/disk1/xuli/Transcode/dataset/test18/raw/raw/eval/
+    lq_path: /home/data/disk1/xuli/Transcode/dataset/test18/x265/bitrate10/eval/
+network:
+  radius: 3  # total num of input frame = 2 * radius + 1
+
+  tsan:
+    in_nc: 1  # 1 for Y
+    out_nc: 1
+    nf: 64  # num of feature maps
+    nb: 10  # num of conv layers
+    base_ks: 3
+    deform_ks: 3  # size of the deformable kernel
+  
+train:
+  exp_name: TSAN  # default: timestr. None: ~
+  random_seed: 7
+  pre-val: False  # evaluate criterion before training, e.g., ori PSNR
+  num_iter: !!float 4e+5
+  interval_print: !!float 10
+  interval_val: !!float 5e+3  # also save model
+  pbar_len: 100
+
+  restore_iter: 0000
+  checkpoint_save_path: ./exp/TSAN
+  
+  optim:
+    type: Adam
+    lr: !!float 1e-4  # init lr of scheduler
+    betas: [0.9, 0.999]
+    eps: !!float 1e-08
+
+  scheduler:
+    is_on: False
+    type: CosineAnnealingRestartLR
+    periods: [!!float 5e+4, !!float 5e+4, !!float 5e+4, !!float 5e+4, !!float 5e+4, !!float 5e+4]  # epoch interval
+    restart_weights: [1, 0.5, 0.5, 0.5, 0.5, 0.5]
+    eta_min: !!float 1e-7
+
+  loss:
+    type: CharbonnierLoss
+    eps: !!float 1e-6
+
+  criterion:
+    type: PSNR
+    unit: dB
+
+test:
+  restore_iter: !!float 300000
+  pbar_len: 100
+  save_path: ./results   # modify by yourself
+
+
+  criterion:
+    type: PSNR
+    unit: dB

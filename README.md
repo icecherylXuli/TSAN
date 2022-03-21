@@ -14,7 +14,7 @@ In most video platforms, such as Youtube, Kwai, and Tik-Tok, the played videos u
 
 - Ubuntu 16.04
 - CUDA 10.1
-- PyTorch 1.16
+- PyTorch 1.6.0+cu101
 - Packages: tqdm, lmdb, pyyaml, opencv-python, scikit-image
 
 ### 2.2. DCNv2
